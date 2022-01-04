@@ -823,8 +823,10 @@ impl<K: Ord + Default, V: Default, const N: usize> SgTree<K, V, N> {
                             match min_node.left_idx() {
                                 // Continue search for min node
                                 Some(lt_idx) => {
-                                    min_parent_idx = min_idx;
+                                    // LOGIC BUG! Order of these statements should be reversed!
+                                    // Node removal can cause us to "lose" subtrees.
                                     min_idx = lt_idx;
+                                    min_parent_idx = min_idx;
                                 }
                                 // Min node found, unlink it
                                 None => match min_node.right_idx() {
