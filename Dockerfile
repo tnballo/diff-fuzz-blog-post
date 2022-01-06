@@ -15,4 +15,4 @@ RUN cargo install cargo-fuzz
 # Src import
 RUN mkdir /diff-fuzz-blog-post
 WORKDIR /diff-fuzz-blog-post
-COPY . /sdiff-fuzz-blog-post/
+COPY . /diff-fuzz-blog-post/
